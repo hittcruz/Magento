@@ -12,8 +12,7 @@ class Index extends \Magento\Framework\App\Action\Action
 	}
 	public function execute()
 	{
-        echo 'Hlaaa';
-		?> <h1>Vista de First task</h1> <?php
+		?> <h1>Vista Index de First task</h1> <?php
         exit;
 	}
 }
