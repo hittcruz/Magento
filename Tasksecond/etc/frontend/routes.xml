@@ -1,8 +1,8 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
-    <router id="admin">
-        <route id="magento_taskfirst" frontName="magento_taskfirst">
-            <module name="Magento_Taskfirst"/>
+    <router id="standard">
+        <route frontName="tasksecond" id="tasksecond">
+            <module name="Magento_Tasksecond"/>
         </route>
     </router>
 </config>

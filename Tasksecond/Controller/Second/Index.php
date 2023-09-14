@@ -1,5 +1,6 @@
 <?php
-namespace Magento\Taskfirst\Controller\First;
+namespace Magento\Tasksecond\Controller\Second;
+
 class Index extends \Magento\Framework\App\Action\Action
 {
 	protected $_pageFactory;
