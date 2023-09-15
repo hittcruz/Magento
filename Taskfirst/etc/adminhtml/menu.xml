@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magento_Taskfirst::taskfirst" title="Tareas" module="Magento_Taskfirst" sortOrder="51" resource="Magento_Taskfirst::taskfirst"/>
+        <add id="Magento_Taskfirst::first" title="First Task" module="Magento_Taskfirst" sortOrder="10" action="magento_taskfirst/first" resource="Magento_Taskfirst::first" parent="Magento_Taskfirst::taskfirst"/>
+    </menu>
+</config>

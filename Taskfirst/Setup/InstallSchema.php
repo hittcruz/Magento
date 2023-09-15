@@ -65,10 +65,10 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
 				$installer->getTable('mgt_tbl_products'),
 				$setup->getIdxName(
 					$installer->getTable('mgt_tbl_products'),
-					['code','name', 'description','price','stock'],
+					['code','name', 'description'],
 					\Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
 				),
-				['code','name', 'description','price','stock'],
+				['code','name', 'description'],
 				\Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
 			);
 		}
