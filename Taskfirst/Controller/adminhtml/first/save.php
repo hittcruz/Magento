@@ -1,7 +1,9 @@
 <?php
 namespace Magento\Taskfirst\Controller\Adminhtml\First;
+
 use Magento\Backend\App\Action;
 use Magento\TestFramework\ErrorLog\Logger;
+
 class Save extends \Magento\Backend\App\Action
 {
     /**
@@ -11,29 +13,42 @@ class Save extends \Magento\Backend\App\Action
     {
         parent::__construct($context);
     }
-    
+
     public function execute()
     {
         $data = $this->getRequest()->getPostValue();
         print_r($data);
         echo '</br>';
+
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
             /** @var \Ashsmith\Blog\Model\Post $model */
-            $model = $this->_objectManager->create('Magento\Taskfirst\Model\Product');
-            $model->setData($data);
-        
-            $this->_eventManager->dispatch(
-                'blog_post_prepare_save',
-                ['post' => $model, 'request' => $this->getRequest()]
-            );
+
             try {
-                $model->save();
-                $this->messageManager->addSuccess(__('Guardaste este nuevo producto.'));
-                $this->_objectManager->get('Magento\Backend\Model\Session')->setFormData(false);
-              
+                if (isset($data['product_id'])) {
+                    $model = $this->_objectManager->create('Magento\Taskfirst\Model\Product')->load($data['product_id']);
+                    $model->addData($data);
+                    $this->_eventManager->dispatch(
+                        'blog_post_prepare_edit',
+                        ['product' => $model, 'request' => $this->getRequest()]
+                    );
+                    $model->save();
+                    $this->messageManager->addSuccess(__('Modificaste este producto.'));
+                    $this->_objectManager->get('Magento\Backend\Model\Session')->setFormData(false);
+                } else {
+                    $model = $this->_objectManager->create('Magento\Taskfirst\Model\Product');
+                    $model->setData($data);
+                    $this->_eventManager->dispatch(
+                        'blog_post_prepare_save',
+                        ['product' => $model, 'request' => $this->getRequest()]
+                    );
+                    $model->save();
+                    $this->messageManager->addSuccess(__('Guardaste este nuevo producto.'));
+                    $this->_objectManager->get('Magento\Backend\Model\Session')->setFormData(false);
+                }
                 return $resultRedirect->setPath('*/*/');
+                
             } catch (\Magento\Framework\Exception\LocalizedException $e) {
                 $this->messageManager->addError($e->getMessage());
             } catch (\RuntimeException $e) {

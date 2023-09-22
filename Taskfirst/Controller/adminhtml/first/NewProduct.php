@@ -14,8 +14,9 @@ class NewProduct extends \Magento\Backend\App\Action
 	
 	public function execute()
 	{
+		$id = $this->getRequest()->getParam('id');
 		$resultPage = $this->resultPageFactory->create();
-		$resultPage->getConfig()->getTitle()->prepend((__('Nuevo Producto')));
+		$resultPage->getConfig()->getTitle()->prepend((__(isset($id) ? 'Modificar Producto' : 'Nuevo Producto')));
 		return $resultPage;
 	}
 }
