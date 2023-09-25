@@ -1,0 +1,10 @@
+#changeResp {
+    background-color: #007bff; /* Color de fondo normal */
+    color: #fff; 
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  #changeResp:hover {
+    background-color: #0056b3; 
+    color: #fff; 
+  }

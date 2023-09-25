@@ -3,4 +3,7 @@
     <referenceContainer name="content">
         <block class="Magento\Tasksecond\Block\Index" name="tasksecond_second_index" template="Magento_Tasksecond::index.phtml" />
     </referenceContainer>
+     <head>
+        <css src="Magento_Tasksecond::style.css"/>
+    </head>
 </page>
