@@ -1,1 +1,19 @@
 <h1> Welcome to Tasksecond Templates</h1>
+
+<?php $value = $block->getFlag(true) ? "OK" : "NO";?>
+
+<h2> El valor recibido es : <?php echo 'valor '.$value; ?> </h2>
+
+
+<div id="app" data-valor="<?php echo $value; ?>">
+<h2>El valor recibido es: {{ respuesta }}</h2>
+
+<div v-if="respuesta === 'OK'">
+    <!-- Vista cuando el valor es "OK" -->
+    <h3>Esta es la vista OK</h3>
+  </div>
+  <div v-else>
+    <!-- Vista cuando el valor es "NO" -->
+    <h3>Esta es la vista NO</h3>
+  </div>
+</div>
