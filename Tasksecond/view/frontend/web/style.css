@@ -8,3 +8,19 @@
     background-color: #0056b3; 
     color: #fff; 
   }
+
+  #if-container-ok {
+    background-color: #4CAF50; 
+    color: #fff;
+    padding: 10px; 
+    border-radius: 5px; 
+}
+
+ 
+
+#if-container-no-ok {
+    background-color: #FF5733; 
+    color: #fff; 
+    padding: 10px; 
+    border-radius: 5px; 
+}  
