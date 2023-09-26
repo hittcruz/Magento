@@ -1,6 +1,6 @@
 <?php
 namespace Magento\Taskthird\Controller\Third;
-class Index extends \Magento\Framework\App\Action\Action
+class Save extends \Magento\Framework\App\Action\Action
 {
     protected $_pageFactory;
 	public function __construct(
@@ -12,6 +12,8 @@ class Index extends \Magento\Framework\App\Action\Action
 	}
 	public function execute()
 	{
-		return $this->_pageFactory->create();
+        $param = $this->getRequest()->getPostValue();
+        print_r($param);
+		//return $this->_pageFactory->create();
 	}
 }

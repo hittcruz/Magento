@@ -1,0 +1,105 @@
+<?php
+/*
+- Base de experiencia
+- altura
+- nombre
+- imagen
+- stats -> (HP, ataque, defensa, atq especial, def especial, velocidad)
+- tipos
+- peso
+*/
+$data = $block->getInfo();
+?>
+<div>
+    <form action="/taskthird/third/save" method="post">
+        <div>
+            <button type="submit">Añadir Favoritos</button>
+        </div>
+        <h1 style="text-align: center;">
+            <input type="text" id="name" name="name" value="<?php echo $data['name']; ?>" hidden>
+            <?php echo $data['name']; ?>
+        </h1>
+        <p style="text-align: center;">
+            <input type="text" id="imagen" name="imagen"
+                value="<?php echo $data['sprites']['other']['home']['front_default']; ?>" hidden>
+            <img src="<?php echo $data['sprites']['other']['home']['front_default']; ?>" alt="" width="151" height="252"
+                style="display: block; margin-left: auto; margin-right: auto;" />
+            <strong>
+                <input type="text" id="base" name="base" value="<?php echo $data['base_experience']; ?>" hidden>
+                Base esperiencia:
+                <?php echo $data['base_experience']; ?>
+            </strong>
+        </p>
+        <p style="text-align: center;">
+            <input type="text" id="height" name="height" value="<?php echo $data['height']; ?>" hidden>
+            <input type="text" id="weight" name="weight" value="<?php echo $data['weight']; ?>" hidden>
+            <?php echo 'altura: ' . $data['height'] . ' | peso: ' . $data['weight']; ?>
+        </p>
+        <table border="0" style="height: 54px; width: 100%; border-collapse: collapse;">
+            <tbody>
+                <tr style="height: 18px;">
+                    <td style="width: 100%; height: 18px;">Stats:</td>
+                </tr>
+                <tr style="height: 18px;">
+                    <td style="width: 100%; height: 18px;">
+                        <table border="1" style="width: 100%; border-collapse: collapse; border-style: solid;">
+                            <tbody>
+                                <tr>
+                                    <td style="width: 50%;">
+                                        <input type="text" id="hp" name="hp"
+                                            value="<?php echo $data['stats'][0]['base_stat']; ?>" hidden>
+                                        <?php echo 'HP: ' . $data['stats'][0]['base_stat']; ?>
+                                    </td>
+                                    <td style="width: 50%;">
+                                        <input type="text" id="speed" name="speed"
+                                            value="<?php echo $data['stats'][5]['base_stat']; ?>" hidden>
+                                        <?php echo 'Velocidad: ' . $data['stats'][5]['base_stat']; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%;">
+                                        <input type="text" id="attack" name="attack"
+                                            value="<?php echo $data['stats'][1]['base_stat']; ?>" hidden>
+                                        <?php echo 'Ataque: ' . $data['stats'][1]['base_stat']; ?>
+                                    </td>
+                                    <td style="width: 50%;">
+                                        <input type="text" id="defense" name="defense"
+                                            value="<?php echo $data['stats'][3]['base_stat']; ?>" hidden>
+                                        <?php echo 'Ataque Esp.: ' . $data['stats'][3]['base_stat']; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 50%;">
+                                        <input type="text" id="special_attack" name="special_attack"
+                                            value="<?php echo $data['stats'][2]['base_stat']; ?>" hidden>
+                                        <?php echo 'Defensa: ' . $data['stats'][2]['base_stat']; ?>
+                                    </td>
+                                    <td style="width: 50%;">
+                                        <input type="text" id="special_defense" name="special_defense"
+                                            value="<?php echo $data['stats'][4]['base_stat']; ?>" hidden>
+                                        <?php echo 'Defensa Esp.: ' . $data['stats'][4]['base_stat']; ?>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr style="height: 18px;">
+                    <td style="width: 100%; height: 18px;">
+                        <p>Tipos:</p>
+                        <table>
+                            <tbody>
+                                <?php
+                                foreach ($data['types'] as $post) {
+                                    echo '<tr><td> ' . $post['type']['name'] . '</td></tr>';
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="text-align: center;"></p>
+    </form>
+</div>

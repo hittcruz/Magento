@@ -1,0 +1,33 @@
+<style>
+table {  font-family: arial, sans-serif;  border-collapse: collapse;  width: 100%;  margin-top: 30px;}
+td, th {  border: 1px solid #dddddd;  text-align: left;  padding: 8px;  }
+tr:nth-child(even) { background-color: #dddddd; }
+.post-id{width:2%} .post-name{width:30%}
+</style>
+<?php
+$data = $block->getInfo();
+?>
+<h1> Pokemon Tipo <?php echo $data['name'];?> </h1>
+
+<table>
+  <tr>
+    <th class="post-id">ID</th>
+    <th class="post-id">Nombre</th>
+    <th class="post-name">URL</th>
+  </tr>
+    <?php
+        foreach ($data['pokemon'] as $key=>$post){
+            echo '<tr>
+                    <td>'.($key + 1).'</td>
+                    <td>'.$post['pokemon']['name'].'</td>
+                    <td>
+                      <form action="/taskthird/third/pokemon" method="get">
+                        <input type="text" id="type" name="type" value="pokemon" hidden >
+                        <input type="text" id="id" name="id" value ="'.$block->getExtId($post['pokemon']['url']).'" hidden>
+                        <button type="submit">Ver</button>
+                      </form>
+                    </td>
+                  </tr>';
+        }
+    ?>
+</table>

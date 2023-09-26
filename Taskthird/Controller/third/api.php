@@ -34,6 +34,23 @@ class Api extends \Magento\Framework\App\Action\Action
      */
     public function execute()
     {
+        //$this->callAPI('pokemon', '1');
+    }
+ 
+    /**
+     * Create json response
+     *
+     * @return \Magento\Framework\Controller\ResultInterface
+     */
+    public function jsonResponse($response = '')
+    {
+        return $this->getResponse()->representJson(
+            $this->jsonHelper->jsonEncode($response,true)
+        );
+    }
+
+    public function callAPI($variable, $param)
+    {
         try {
             //$params = $this->getRequest()->getParams();
             //$fieldOneValue = $params['field_one_v'];
@@ -41,9 +58,8 @@ class Api extends \Magento\Framework\App\Action\Action
  
             // start api calling
             //$service_url = 'https://example.com/getlist?oneParam='.$fieldOneValue.'&twoParam='.$fieldTwoValue;
-            $variable = 'pokemon';
-            $paramOneValue = '1';
-            $service_url = 'https://pokeapi.co/api/v2/'.$variable.'/'.$paramOneValue;
+            $service_url = 'https://pokeapi.co/api/v2/'.$variable.'/'.$param;
+            //echo 'Mi url-> '.$service_url;
             $handle = curl_init();
  
             curl_setopt($handle, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
@@ -63,7 +79,8 @@ class Api extends \Magento\Framework\App\Action\Action
             // end api calling
              
             //return $this->jsonResponse($dynamicValue);
-            return $this->jsonResponse($resultObjts);
+            //return $this->jsonResponse($resultObjts);
+            return $resultObjts;
              
         } catch (\Magento\Framework\Exception\LocalizedException $e) {
             return $this->jsonResponse($e->getMessage());
@@ -71,17 +88,5 @@ class Api extends \Magento\Framework\App\Action\Action
             $this->logger->critical($e);
             return $this->jsonResponse($e->getMessage());
         }
-    }
- 
-    /**
-     * Create json response
-     *
-     * @return \Magento\Framework\Controller\ResultInterface
-     */
-    public function jsonResponse($response = '')
-    {
-        return $this->getResponse()->representJson(
-            $this->jsonHelper->jsonEncode($response)
-        );
     }
 }

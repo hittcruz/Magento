@@ -1,0 +1,33 @@
+<style>
+table {  font-family: arial, sans-serif;  border-collapse: collapse;  width: 100%;  margin-top: 30px;}
+td, th {  border: 1px solid #dddddd;  text-align: left;  padding: 8px;  }
+tr:nth-child(even) { background-color: #dddddd; }
+.post-id{width:2%} .post-name{width:30%}
+</style>
+
+<h1> Tipos de Pokemones de la Generación I</h1>
+<?php
+$data = $block->getAllTypes();
+?>
+<table>
+  <tr>
+    <th class="post-id">ID</th>
+    <th class="post-id">Tipos</th>
+    <th class="post-name">URL</th>
+  </tr>
+    <?php
+        foreach ($data as $key=>$post){
+            echo '<tr>
+                    <td>'.($key + 1).'</td>
+                    <td>'.$post['name'].'</td>
+                    <td>
+                      <form action="/taskthird/third/types" method="get">
+                        <input type="text" id="type" name="type" value="type" hidden >
+                        <input type="text" id="id" name="id" value ="'.$block->getExtId($post['url']).'" hidden>
+                        <button type="submit">Ver</button>
+                      </form>
+                    </td>
+                  </tr>';
+        }
+    ?>
+</table>
