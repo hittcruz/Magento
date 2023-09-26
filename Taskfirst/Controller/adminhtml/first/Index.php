@@ -19,6 +19,7 @@ class Index extends \Magento\Backend\App\Action
 	public function execute()
 	{
 		$resultPage = $this->resultPageFactory->create();
+		$resultPage->setActiveMenu('Magento_Taskfirst::first');
 		$resultPage->getConfig()->getTitle()->prepend((__('Productos Nuevos')));
 		return $resultPage;
 	}
