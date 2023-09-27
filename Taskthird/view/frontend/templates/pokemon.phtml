@@ -17,10 +17,11 @@ $data = $block->getInfo();
         </div>
         <h1 style="text-align: center;">
             <input type="text" id="name" name="name" value="<?php echo $data['name']; ?>" hidden>
+            <input type="text" id="id" name="id" value="<?php echo $data['id']; ?>" hidden>
             <?php echo $data['name']; ?>
         </h1>
         <p style="text-align: center;">
-            <input type="text" id="imagen" name="imagen"
+            <input type="text" id="image" name="image"
                 value="<?php echo $data['sprites']['other']['home']['front_default']; ?>" hidden>
             <img src="<?php echo $data['sprites']['other']['home']['front_default']; ?>" alt="" width="151" height="252"
                 style="display: block; margin-left: auto; margin-right: auto;" />
@@ -63,14 +64,14 @@ $data = $block->getInfo();
                                         <?php echo 'Ataque: ' . $data['stats'][1]['base_stat']; ?>
                                     </td>
                                     <td style="width: 50%;">
-                                        <input type="text" id="defense" name="defense"
+                                        <input type="text" id="special_attack" name="special_attack"
                                             value="<?php echo $data['stats'][3]['base_stat']; ?>" hidden>
                                         <?php echo 'Ataque Esp.: ' . $data['stats'][3]['base_stat']; ?>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="width: 50%;">
-                                        <input type="text" id="special_attack" name="special_attack"
+                                        <input type="text" id="defense" name="defense"
                                             value="<?php echo $data['stats'][2]['base_stat']; ?>" hidden>
                                         <?php echo 'Defensa: ' . $data['stats'][2]['base_stat']; ?>
                                     </td>

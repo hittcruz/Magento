@@ -24,11 +24,11 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
 					'Pokemon ID'
 				)
 				->addColumn(
-					'name',
-					\Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-					255,
+					'id',
+					\Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+					null,
 					['nullable => false'],
-					'Codigo'
+					'ID Pokemom'
 				)
                 ->addColumn(
 					'name',
@@ -37,38 +37,87 @@ class InstallSchema implements \Magento\Framework\Setup\InstallSchemaInterface
 					['nullable => false'],
 					'Nombre'
 				)
-                ->addColumn(
-					'description',
+				->addColumn(
+					'image',
 					\Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
 					255,
 					['nullable => false'],
-					'Descripcion'
+					'Imagen'
 				)
                 ->addColumn(
-                    'price',
-                    \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
-                    '10,2',
-                    ['nullable' => false, 'default' => '0.00'],
-                    'Precio'
-                )
-                ->addColumn(
-					'stock',
+					'base',
 					\Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
 					null,
 					['nullable => false'],
-					'Stock'
+					'Base Experiencia'
+				)
+                ->addColumn(
+					'height',
+					\Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+					null,
+					['nullable => false'],
+					'Altura'
+				)
+                ->addColumn(
+					'weight',
+					\Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+					null,
+					['nullable => false'],
+					'Peso'
+				)
+				->addColumn(
+					'hp',
+					\Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+					null,
+					['nullable => false'],
+					'HP'
+				)
+				->addColumn(
+					'speed',
+					\Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+					null,
+					['nullable => false'],
+					'Velocidad'
+				)
+				->addColumn(
+					'attack',
+					\Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+					null,
+					['nullable => false'],
+					'Ataque'
+				)
+				->addColumn(
+					'defense',
+					\Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+					null,
+					['nullable => false'],
+					'Defensa'
+				)
+				->addColumn(
+					'special_attack',
+					\Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+					null,
+					['nullable => false'],
+					'Ataque Especial'
+				)
+				->addColumn(
+					'special_defense',
+					\Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+					null,
+					['nullable => false'],
+					'Defensa Especial'
 				)
 
-				->setComment('Products Table');
+				->setComment('Pokemons Table');
 			$installer->getConnection()->createTable($table);
 			$installer->getConnection()->addIndex(
 				$installer->getTable('mgt_tbl_pokemon'),
 				$setup->getIdxName(
 					$installer->getTable('mgt_tbl_pokemon'),
-					['code','name', 'description'],
+					['name','image'],
 					\Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
 				),
-				['code','name', 'description'],
+				['name','image'],
 				\Magento\Framework\DB\Adapter\AdapterInterface::INDEX_TYPE_FULLTEXT
 			);
 		}
