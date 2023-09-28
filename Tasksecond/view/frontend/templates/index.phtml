@@ -1,19 +1,18 @@
+<script type="text/javascript" src="<?= $block->getViewFileUrl('js/App.js') ?>"></script>
 <h1> Welcome to Tasksecond Templates</h1>
 
-<?php $value = $block->getFlag(true) ? "OK" : "NO";?>
-
-<!-- <h2> El valor recibido es : <?php echo 'valor '.$value; ?> </h2> --->
-
+<?php $value = $block->getFlag(false) ? "OK" : "NO"; ?>
+<h2> El valor recibido es : <?php echo 'valor ' . $value; ?> </h2>
 
 <div id="app" data-valor="<?php echo $value; ?>">
-<hr>
-<span>datos desde vue.js</span>
-<br>
-<button v-on:click="changeResp" id="changeResp">Cambiar Vista</button>
+  <hr>
+  <span>datos desde vue.js</span>
+  <br>
+  <button v-on:click="changeResp" id="changeResp">Cambiar Vista</button>
 
-<h2>El valor recibido es: {{ respuesta }}</h2>
+  <h2>El valor recibido es: {{ respuesta }}</h2>
 
-<div v-if="respuesta === 'OK'" id="if-container-ok">
+  <div v-if="respuesta === 'OK'" id="if-container-ok">
     <!-- Vista cuando el valor es "OK" -->
     <h3>Esta es la vista OK </h3>
     <h2>vista ok</h2>
@@ -22,11 +21,7 @@
   <div v-else id="if-container-no-ok">
     <!-- Vista cuando el valor es "NO" -->
     <h3>Esta es la vista NO</h3>
-
-    <h6>sssssss</h6>
-
     <span>hola a todos</span>
   </div>
 
-  <formulario-component></formulario-component>
 </div>
