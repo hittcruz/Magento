@@ -3,4 +3,7 @@
     <referenceContainer name="content">
         <block class="Magento\Taskthird\Block\Types" name="taskthird_third_types" template="Magento_Taskthird::types.phtml" />
     </referenceContainer>
+    <head>
+        <css src="Magento_Taskthird::css/style.css"/>
+    </head>
 </page>

@@ -13,7 +13,7 @@ $data = $block->getInfo();
 <div>
     <form action="/taskthird/third/save" method="post">
         <div>
-            <button type="submit">Añadir Favoritos</button>
+            <button id="b-ver" type="submit">Añadir Favoritos</button>
         </div>
         <h1 style="text-align: center;">
             <input type="text" id="name" name="name" value="<?php echo $data['name']; ?>" hidden>
@@ -36,7 +36,7 @@ $data = $block->getInfo();
             <input type="text" id="weight" name="weight" value="<?php echo $data['weight']; ?>" hidden>
             <?php echo 'altura: ' . $data['height'] . ' | peso: ' . $data['weight']; ?>
         </p>
-        <table border="0" style="height: 54px; width: 100%; border-collapse: collapse;">
+        <table class="pokemon-table" border="0" style="height: 54px; width: 100%; border-collapse: collapse;">
             <tbody>
                 <tr style="height: 18px;">
                     <td style="width: 100%; height: 18px;">Stats:</td>

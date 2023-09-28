@@ -3,4 +3,7 @@
     <referenceContainer name="content">
         <block class="Magento\Taskthird\Block\Favorites\Index" name="taskthird_favorite_index" template="Magento_Taskthird::favorites/index.phtml" />
     </referenceContainer>
+    <head>
+        <css src="Magento_Taskthird::css/style.css"/>
+    </head>
 </page>

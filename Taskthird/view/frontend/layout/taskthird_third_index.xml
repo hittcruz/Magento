@@ -3,4 +3,7 @@
     <referenceContainer name="content">
         <block class="Magento\Taskthird\Block\Index" name="taskthird_third_index" template="Magento_Taskthird::index.phtml" />
     </referenceContainer>
+    <head>
+        <css src="Magento_Taskthird::css/style.css"/>
+    </head>
 </page>

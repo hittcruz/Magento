@@ -1,15 +1,10 @@
-<style>
-table {  font-family: arial, sans-serif;  border-collapse: collapse;  width: 100%;  margin-top: 30px;}
-td, th {  border: 1px solid #dddddd;  text-align: left;  padding: 8px;  }
-tr:nth-child(even) { background-color: #dddddd; }
-.post-id{width:2%} .post-name{width:30%}
-</style>
+<script type="text/javascript" src="<?= $block->getViewFileUrl('js/App.js') ?>"></script>
 <?php
 $data = $block->getInfo();
 ?>
 <h1> Pokemon Tipo <?php echo $data['name'];?> </h1>
 
-<table>
+<table class="pokemon-table">
   <tr>
     <th class="post-id">ID</th>
     <th class="post-id">Nombre</th>
@@ -24,7 +19,7 @@ $data = $block->getInfo();
                       <form action="/taskthird/third/pokemon" method="get">
                         <input type="text" id="type" name="type" value="pokemon" hidden >
                         <input type="text" id="id" name="id" value ="'.$block->getExtId($post['pokemon']['url']).'" hidden>
-                        <button type="submit">Ver</button>
+                        <button id="b-ver" type="submit">Ver</button>
                       </form>
                     </td>
                   </tr>';

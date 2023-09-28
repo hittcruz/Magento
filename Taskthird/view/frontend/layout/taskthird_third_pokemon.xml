@@ -3,4 +3,7 @@
     <referenceContainer name="content">
         <block class="Magento\Taskthird\Block\Pokemon" name="taskthird_third_pokemon" template="Magento_Taskthird::pokemon.phtml" />
     </referenceContainer>
+    <head>
+        <css src="Magento_Taskthird::css/style.css"/>
+    </head>
 </page>
